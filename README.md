@@ -15,13 +15,17 @@ Requisitos
 Microsoft Excel de escritorio con soporte para matrices dinámicas y las funciones LET, LAMBDA, MAKEARRAY y TOROW (ENFILA). En el entorno utilizado para desarrollar el proyecto, MAKEARRAY aparece como ARCHIVOMAKEARRAY.
 La ejecución requiere cálculo manual y cálculo iterativo habilitado con un máximo de una iteración. No se ha verificado la compatibilidad con otras aplicaciones de hojas de cálculo.
 Cómo ejecutar la simulación
-Descarga el archivo `.xlsx` del repositorio y ábrelo en Excel.
+Descarga el archivo .xlsx del repositorio y ábrelo en Excel.
 En Archivo → Opciones → Fórmulas, habilita el cálculo iterativo.
 Establece Número máximo de iteraciones: 1.
 Selecciona el modo de cálculo Manual.
 Activa Reset y presiona F9 para inicializar el tablero.
+Ingresa coordenadas validas en PosX Insercion y PosY Insercion 
 Desactiva Reset.
 Presiona F9 para avanzar la simulación.
+Para ingresar una nueva hormiga ingresa coordenadas validas en PosX Insercion y PosY Insercion.
+Activa Insertar_Hormiga (no es necesario desactivarla para que siga la simulación pero para ingresar otra es necesario desactivarla mientras se configuran las coordenadaas)
+
 Comprueba que cada pulsación produzca un único paso. La configuración de cálculo de Excel puede afectar también a otros libros abiertos.
 Reglas y representación del estado
 La convención de giro utilizada es:
@@ -33,17 +37,17 @@ En cada actualización se recupera ese estado, se calcula el giro usando el colo
 Estado de la celda	Código
 Negra sin hormiga	-1
 Blanca sin hormiga	1
-Negra con hormiga que llegó hacia arriba (↑)	-20
-Negra con hormiga que llegó hacia la derecha (→)	-21
-Negra con hormiga que llegó hacia abajo (↓)	-22
-Negra con hormiga que llegó hacia la izquierda (←)	-23
-Blanca con hormiga que llegó hacia arriba (↑)	20
-Blanca con hormiga que llegó hacia la derecha (→)	21
-Blanca con hormiga que llegó hacia abajo (↓)	22
-Blanca con hormiga que llegó hacia la izquierda (←)	23
+Negra con hormiga que llegó hacia arriba (↑)	-10
+Negra con hormiga que llegó hacia la derecha (→)	-11
+Negra con hormiga que llegó hacia abajo (↓)	-12
+Negra con hormiga que llegó hacia la izquierda (←)	-13
+Blanca con hormiga que llegó hacia arriba (↑)	10
+Blanca con hormiga que llegó hacia la derecha (→)	11
+Blanca con hormiga que llegó hacia abajo (↓)	12
+Blanca con hormiga que llegó hacia la izquierda (←)	13
 La codificación de una celda con hormiga es:
 
-Código = Color × (20 + Dirección)
+Código = Color × (10 + Dirección)
 Color: -1 = negro; 1 = blanco
 Dirección: 0 = arriba; 1 = derecha; 2 = abajo; 3 = izquierda
 
@@ -59,7 +63,7 @@ La autopista diagonal
 En el modelo clásico sobre un plano inicialmente blanco, la hormiga termina formando una autopista: una secuencia de 104 pasos que desplaza su posición dos celdas en cada eje por repetición.
 Durante las pruebas de este proyecto se observó visualmente una estructura diagonal repetitiva. En el tablero toroidal, el encuentro con regiones previamente modificadas puede alterar su continuidad; la captura visual por sí sola no demuestra un período de 104 pasos.
 Limitaciones
-La versión descrita trabaja con una única hormiga.
+La versión descrita trabaja con multiples hormigas.
 El rendimiento depende del tamaño de la matriz y del equipo.
 El avance depende de la configuración de cálculo de Excel.
 La topología toroidal puede producir trayectorias distintas a las del plano infinito.
